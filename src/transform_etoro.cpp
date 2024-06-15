@@ -1,5 +1,6 @@
 
 #include "stock_utils.h"
+#include "matrix_utils.h"
 #include "curl_utils.hpp"
 // #include "src/quote.hpp"
 using namespace std;
@@ -23,7 +24,8 @@ using namespace std;
 // g++ time_utils.cpp curl_utils.cpp quote.cpp spot.cpp transform_etoro.cpp -o trans_etoro -lcurl
 
 string file = "../input/etoro_stocks.csv";
-
+string lastCompanyFile = "../input/lastCompany.txt";
+string outputFile = "../output/yfin_etoroTicks.csv";
 
 string set_yfin_curl(string const & pre_ticker_info) {
     string ticker_info;
@@ -36,6 +38,7 @@ string set_yfin_curl(string const & pre_ticker_info) {
 }
 
 
+
 string yfin_response_buffer(string const & pre_ticker_info) {
     string url = set_yfin_curl(pre_ticker_info);
     
@@ -46,17 +49,26 @@ string yfin_response_buffer(string const & pre_ticker_info) {
     if (curl) {
         curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
 
+        // set curl options and headers
+        curl_easy_setopt(curl, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.2; .NET CLR 1.0.3705;)");
+        curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);
+
         // Write result into the buffer
         curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, writeCallback);
         curl_easy_setopt(curl, CURLOPT_WRITEDATA, &responseBuffer);
-        curl_easy_setopt(curl, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.2; .NET CLR 1.0.3705;)");
         
-
         // Perform the request
         CURLcode res = curl_easy_perform(curl);
 
+        if(res != CURLE_OK)
+            std::cerr << "curl_easy_perform() failed: " << curl_easy_strerror(res) << std::endl;
+
+
         // Cleanup
         curl_easy_cleanup(curl);
+    }
+    else {
+        cout << "Curl could not be performed." << endl;
     }
 
     return responseBuffer;
@@ -69,6 +81,7 @@ string etoro_tick_to_yahoo(string const & pre_ticker_info) {
     pos = response.find("symbol", pos); // start of the table of interest
     size_t endPos = response.find("index", pos); // start of the table of interest
     string symbol = response.substr(pos+9, endPos - pos-3-9);
+    if(symbol.length() > 15 ) symbol="not_found";
     return symbol;
 }
 
@@ -77,30 +90,40 @@ void deleteWeirdChars(string & compaName) {
      
 }
 
-vector<string> all_etoro_to_yahoo(vector<string> const & compaNames) {
+void all_etoro_to_yahoo(vector<string> const & compaNames, string const & outfile) {
     int n = LenghtOfVectorStr(compaNames);
     vector<string> yahooTicks;
     cout << n << " company names from etoro are being converted to a Yahoo symbol" << endl;
     for(string compaName : compaNames) {
-        deleteWeirdChars(compaName);
-        string ytick = etoro_tick_to_yahoo(compaName);
-        cout << "initial info about the company from etoro: " << compaName << endl;
-        cout << "symbol yfin: "  << ytick << endl;
-        yahooTicks.push_back(ytick);
+        string lastCompany = GetFirstLineOfFile(lastCompanyFile);// get last company that was translated to yfin tick
+        int posCompa = findPos(compaNames, compaName);
+        int posLastUsed = findPos(compaNames, lastCompany);
+
+        if(posCompa > posLastUsed) { // only work if we have not translated this company name already
+            deleteWeirdChars(compaName);
+            string ytick = etoro_tick_to_yahoo(compaName);
+            cout << "initial info about the company from etoro: " << compaName << endl;
+            cout << "symbol yfin: "  << ytick << endl;
+            WriteToFileSimple(ytick, outfile); // write the ytick to an output file
+            WriteToFileOver(compaName, lastCompanyFile); // keep track of the last company we analysed
+        }
+        
     }
-    return yahooTicks;
     
 }
 
 int main() {
     vector<string> etoro_compaNames;
-    etoro_compaNames = extractNthColumnFromCsvString(file,1,';');
-    // OutputVector(etoro_ticks); // works good
-    vector<string> yahooTicks = all_etoro_to_yahoo(etoro_compaNames);
-    OutputVector(yahooTicks);
+    etoro_compaNames = extractNthColumnFromCsvString(file, 1, ';', true);
+    // yahoo finance only allows around 600 requests per 10 min.
+    
+    string lastCompany = GetFirstLineOfFile(lastCompanyFile);
+    int posLastUsed = findPos(etoro_compaNames, lastCompany);
+    vector<string> part(etoro_compaNames.begin()+posLastUsed, 
+                    etoro_compaNames.begin() + posLastUsed+600);
+    
+    all_etoro_to_yahoo(part, outputFile);
 
     
-
-
 }
 

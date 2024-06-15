@@ -459,7 +459,8 @@ vector<double> extractNthColumnFromString(const string& text, const int & column
 }
 
 
-vector<string> extractNthColumnFromCsvString(const string& filename, const int & columna, const char sep = ',') {
+vector<string> extractNthColumnFromCsvString(const string& filename, const int & columna, 
+const char sep = ',', bool deleteFirstRow=false) {
     vector<string> columnData;
     
     ifstream file(filename);
@@ -469,17 +470,19 @@ vector<string> extractNthColumnFromCsvString(const string& filename, const int &
         cerr << "No s'ha pogut obrir el fitxer: " << filename << endl;
         return columnData;
     }
+    string item;
+    int columnIndex;
 
     while (getline(file, line)) {
         stringstream ss(line);
-        string item;
-        int columnIndex = 0;
-        string value;
+        columnIndex = 0;        
         
         while (getline(ss, item, sep)) {
             if (columnIndex == (columna-1)) {
                 try {
-                    value = item;
+                    const vector<char> data(item.begin(), item.end());
+                    cout << "String convertida a char: " << data[1] << endl;
+                    string value(data.begin(), data.end()); 
                     columnData.push_back(value);
                 } catch (const invalid_argument& e) {
                     cerr << "Error de conversió a string: " << item << endl;
@@ -493,6 +496,10 @@ vector<string> extractNthColumnFromCsvString(const string& filename, const int &
     }
 
     file.close();
+
+    if(deleteFirstRow) columnData.erase(columnData.begin()); // eliminem el primer element ja que no és el nom d'una companyia
+
+ 
     return columnData;
 }
 

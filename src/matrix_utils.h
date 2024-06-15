@@ -1,5 +1,7 @@
 #include <algorithm>
 #include <vector>
+#include <iostream>
+#include <string>
 
 using namespace std; 
 
@@ -18,3 +20,13 @@ void vD_sortBy2Col(vector<vector<double>>& vect) {
 }
 
 
+
+int findPos(const vector<string> & vector, const string & elem) { // returns index of elem in array or -1 if not found
+    int posicio = 0;
+
+    for(string str: vector) {
+        if(str == elem) return posicio;
+        posicio = posicio + 1;
+    }
+    return -1;
+}
