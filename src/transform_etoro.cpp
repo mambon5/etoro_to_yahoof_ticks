@@ -4,6 +4,7 @@
 #include "curl_utils.hpp"
 // #include "src/quote.hpp"
 using namespace std;
+#include <unistd.h>
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -26,6 +27,7 @@ using namespace std;
 string file = "../input/etoro_stocks.csv";
 string lastCompanyFile = "../input/lastCompany.txt";
 string outputFile = "../output/yfin_etoroTicks.csv";
+string outLogs = "../output/outLogs.txt";
 
 string set_yfin_curl(string const & pre_ticker_info) {
     string ticker_info;
@@ -85,8 +87,9 @@ string etoro_tick_to_yahoo(string const & pre_ticker_info) {
     return symbol;
 }
 
-void deleteWeirdChars(string & compaName) {
-    compaName = replaceChars(compaName, '/', 'x',true);
+string deleteWeirdChars(string & oldName) {
+    string newName = replaceChars(oldName, '/', 'x',true);
+    return newName;
      
 }
 
@@ -100,12 +103,13 @@ void all_etoro_to_yahoo(vector<string> const & compaNames, string const & outfil
         int posLastUsed = findPos(compaNames, lastCompany);
 
         if(posCompa > posLastUsed) { // only work if we have not translated this company name already
-            deleteWeirdChars(compaName);
-            string ytick = etoro_tick_to_yahoo(compaName);
-            cout << "initial info about the company from etoro: " << compaName << endl;
+            string newCompa = deleteWeirdChars(compaName);
+            string ytick = etoro_tick_to_yahoo(newCompa);
+            cout << "initial info about the company from etoro: " << newCompa << endl;
             cout << "symbol yfin: "  << ytick << endl;
             WriteToFileSimple(ytick, outfile); // write the ytick to an output file
             WriteToFileOver(compaName, lastCompanyFile); // keep track of the last company we analysed
+            WriteToFileSimple("company name:" + newCompa + " and yfin: " + ytick, outLogs);
         }
         
     }
@@ -115,14 +119,36 @@ void all_etoro_to_yahoo(vector<string> const & compaNames, string const & outfil
 int main() {
     vector<string> etoro_compaNames;
     etoro_compaNames = extractNthColumnFromCsvString(file, 1, ';', true);
-    // yahoo finance only allows around 600 requests per 10 min.
+    // yahoo finance only allows around 600 requests per 3 min.
+
+    for(int i=0; i<14; ++i) {
+        int translationsChunck = 300;
+        int sleepMinutes= 10;
+
+        WriteToFileSimple("doing the first " + to_string(i) + " " +to_string(translationsChunck)+"  translations", outLogs);
+        string lastCompany = GetFirstLineOfFile(lastCompanyFile);
+        int posLastUsed = findPos(etoro_compaNames, lastCompany);
+        cout << "posLastUsed: " << posLastUsed << endl;
+        if(posLastUsed+translationsChunck > LenghtOfVectorStr(etoro_compaNames)) {
+            //basically, if the chunck would make a segmentation fault, shorten it to fit 
+            //the remaining elements of the array
+            translationsChunck = posLastUsed+translationsChunck-LenghtOfVectorStr(etoro_compaNames) ;
+        }
+        vector<string> part(etoro_compaNames.begin()+ posLastUsed, 
+                        etoro_compaNames.begin() + posLastUsed+translationsChunck);
+        
+        all_etoro_to_yahoo(part, outputFile);        
+
+        // check if we reached the end
+        if(LenghtOfVectorStr(etoro_compaNames) <= posLastUsed+translationsChunck) {
+            cout << "We finished the analysis." << endl;
+            return 0;
+        }
+
+        WriteToFileSimple("sleeping for "+to_string(sleepMinutes)+" min ...", outLogs);
+        sleep(sleepMinutes*60);// wait 8 min, i think the allowed rate is around 100 requests per minute.
+    }
     
-    string lastCompany = GetFirstLineOfFile(lastCompanyFile);
-    int posLastUsed = findPos(etoro_compaNames, lastCompany);
-    vector<string> part(etoro_compaNames.begin()+posLastUsed, 
-                    etoro_compaNames.begin() + posLastUsed+600);
-    
-    all_etoro_to_yahoo(part, outputFile);
 
     
 }

@@ -267,8 +267,9 @@ void WriteToFileOver( const std::string& output, const std::string& outputFile, 
     outFile.close();
 }
 
-void WriteToFile(const vector<std::string>& tickers, const std::string& outputFile) {
+void WriteToFile(const vector<std::string>& tickers, const std::string& outputFile, bool showVector=false) {
     ofstream outFile;
+    bool first=true;
     outFile.open(outputFile, ios_base::app); // append instead of overwrite
     if (!outFile.is_open()) {
         cerr << "Failed to open the output file: " << outputFile << endl;
@@ -280,8 +281,12 @@ void WriteToFile(const vector<std::string>& tickers, const std::string& outputFi
     // tickers = sort(tickers.begin(), tickers.end());
     // Write tickers to the output file
     for (const std::string& ticker : tickers) {
-        cout << ticker << ", ";
-        outFile << ticker << ",";
+        if(showVector) cout << ticker << ", ";
+        if(first) { 
+            outFile << ticker;
+            first = false;
+        }
+        else outFile << "," << ticker;
     }
     outFile.close();
 }
@@ -480,10 +485,8 @@ const char sep = ',', bool deleteFirstRow=false) {
         while (getline(ss, item, sep)) {
             if (columnIndex == (columna-1)) {
                 try {
-                    const vector<char> data(item.begin(), item.end());
-                    cout << "String convertida a char: " << data[1] << endl;
-                    string value(data.begin(), data.end()); 
-                    columnData.push_back(value);
+                    
+                    columnData.push_back(item);
                 } catch (const invalid_argument& e) {
                     cerr << "Error de conversió a string: " << item << endl;
                 } catch (const out_of_range& e) {
