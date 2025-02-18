@@ -348,6 +348,13 @@ string urlencode(const std::string &value) {// codifica caràcters extranys
     return encoded.str();
 }
 
+// Funció per eliminar els elements que siguin 'not_found' o continguin el substring "nt":
+void removeInvalidStrings(std::vector<std::string>& arr) {
+    arr.erase(std::remove_if(arr.begin(), arr.end(), [](const std::string& s) {
+        return s == "not_found" || s.find("nt\":") != std::string::npos;
+    }), arr.end());
+}
+
 void printCharCodes(const string& str) {
     for (char c : str) {
         cout << "[" << int(c) << "] ";  // Mostra el codi ASCII de cada caràcter
