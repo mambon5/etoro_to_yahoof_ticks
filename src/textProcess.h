@@ -323,6 +323,55 @@ bool TodayFileExists(const string & dirname, const string & filenameSuffix) {
     return false;
 }
 
+
+string removeNulls(const std::string& input) { // elimina caràcters nulls de l'string
+    std::string result = input;
+    result.erase(std::remove(result.begin(), result.end(), '\0'), result.end());
+    return result;
+}
+
+string urlencode(const std::string &value) {// codifica caràcters extranys
+    std::ostringstream encoded;
+    encoded.fill('0');
+    encoded << std::hex;
+
+    string copy = removeNulls(value);
+
+    for (unsigned char c : copy) {
+        if (isalnum(c) || c == '-' || c == '_' || c == '.' || c == '~') {
+            encoded << c;
+        } else {
+            encoded << '%' << std::setw(2) << int(c);
+        }
+    }
+
+    return encoded.str();
+}
+
+void printCharCodes(const string& str) {
+    for (char c : str) {
+        cout << "[" << int(c) << "] ";  // Mostra el codi ASCII de cada caràcter
+    }
+    cout << endl;
+}
+
+std::string removeTextAfterParenthesis(const std::string& input) {
+    size_t pos = input.find('('); // Cerca el primer parèntesi
+    if (pos != std::string::npos) {
+        return input.substr(0, pos); // Retorna només la part abans del parèntesi
+    }
+    return input; // Si no troba cap parèntesi, retorna el string original
+}
+
+string trim(const string& str) {
+    string str2 = removeNulls(str);
+    str2 = removeTextAfterParenthesis(str2);
+    size_t first = str2.find_first_not_of(" \t\r\n"); // Troba el primer caràcter no espai
+    size_t last = str2.find_last_not_of(" \t\r\n");  // Troba l'últim caràcter no espai
+    return (first == string::npos) ? "" : str2.substr(first, (last - first + 1));
+}
+
+
 void DeleteOlderFiles(const string & dirname, const string & filenameSuffix, const int & daysOld, bool printAll=true) {
     // This function: 
     //  1. gets the file names containing the filenameSuffix.
@@ -486,7 +535,7 @@ const char sep = ',', bool deleteFirstRow=false) {
             if (columnIndex == (columna-1)) {
                 try {
                     
-                    columnData.push_back(item);
+                    columnData.push_back(trim(item));
                 } catch (const invalid_argument& e) {
                     cerr << "Error de conversió a string: " << item << endl;
                 } catch (const out_of_range& e) {

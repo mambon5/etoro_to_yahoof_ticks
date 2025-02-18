@@ -27,12 +27,14 @@ using namespace std;
 string data_exec = "02_2025";
 string file = "../input/etoro_stocks_"+data_exec+".csv";
 string lastCompanyFile = "../input/lastCompany.txt";
-string outputFile = "../output/yfin_etoroTicks"+data_exec+".csv";
+string outputFile = "../output/yfin_etoroTicks_"+data_exec+".csv";
 string outLogs = "../output/outLogs.txt";
 
 string set_yfin_curl(string const & pre_ticker_info) {
-    string ticker_info;
-    ticker_info = replaceChars(pre_ticker_info, ' ', '+');
+    string ticker_info = pre_ticker_info;
+    // ticker_info = replaceChars(pre_ticker_info, ' ', '+');
+    cout << "ticker info (as inside set_yfin_curl()): " << ticker_info << endl;
+    ticker_info = urlencode(ticker_info);
     string yfin_command="https://query1.finance.yahoo.com/v1/finance/search?q="+ticker_info+"&lang=es-ES&region=ES&quotesCount=6&newsCount=4&enableFuzzyQuery=false&quotesQueryId=tss_match_phrase_query&multiQuoteQueryId=multi_quote_single_token_query&newsQueryId=news_cie_vespa&enableCb=true&enableNavLinks=true&enableEnhancedTrivialQuery=true&enableCulturalAssets=true&enableLogoUrl=true";
     // we got this info
     // from the yahoo finance webpage form, input places
@@ -45,6 +47,7 @@ string set_yfin_curl(string const & pre_ticker_info) {
 string yfin_response_buffer(string const & pre_ticker_info) {
     CURL* curl;
     CURLcode res;
+    char* final_url = nullptr; // Variable per emmagatzemar la URL final utilitzada
     
     // URL a la qual farem la petició
     string url = set_yfin_curl(pre_ticker_info);
@@ -63,23 +66,28 @@ string yfin_response_buffer(string const & pre_ticker_info) {
     if (curl) {
         // Estableix la URL per a la petició
         curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
-        cout << "url2 " << endl << url << std::endl;
         curl_easy_setopt(curl, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36");
+        curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L); // Segueix redireccions
 
-        
+        // curl_easy_setopt(curl, CURLOPT_VERBOSE, 1L); // debug el curl per veure que esta passant
+
         // Estableix la funció callback per processar la resposta
         curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, writeCallback);
         curl_easy_setopt(curl, CURLOPT_WRITEDATA, &responseBuffer);
         
         // Realitza la petició
         res = curl_easy_perform(curl);
+
+        // Obtenir la URL final (en cas de redireccions)
+        curl_easy_getinfo(curl, CURLINFO_EFFECTIVE_URL, &final_url);
         
         // Comprova si la petició ha estat correcta
         if(res != CURLE_OK) {
             std::cerr << "curl_easy_perform() fallat: " << curl_easy_strerror(res) << std::endl;
         } else {
             // Si la petició ha estat exitosa, mostrem la resposta
-            std::cout << "Resposta de la petició:\n" << responseBuffer << std::endl;
+            // std::cout << "Resposta de la petició:\n" << responseBuffer << std::endl;
+            std::cout << "🔗 URL utilitzada: " << (final_url ? final_url : url) << "\n";
         }
         
         // Allibera els recursos de curl
@@ -97,8 +105,8 @@ string etoro_tick_to_yahoo(string const & pre_ticker_info) {
     cout << "pre ticker info: " << pre_ticker_info << endl;
     string response = yfin_response_buffer(pre_ticker_info);
     size_t pos = 0;
-    cout << "response:" << endl;
-    cout << response << endl;
+    // cout << "response:" << endl;
+    // cout << response << endl;
     pos = response.find("symbol", pos); // start of the table of interest
     cout << "begin pos: " << pos << endl;
     size_t endPos = response.find(",", pos); // start of the table of interest
@@ -120,7 +128,7 @@ void all_etoro_to_yahoo(vector<string> const & compaNames, string const & outfil
     vector<string> yahooTicks;
     cout << n << " company names from etoro are being converted to a Yahoo symbol" << endl;
     for(string compaName : compaNames) {
-        string lastCompany = GetFirstLineOfFile(lastCompanyFile);// get last company that was translated to yfin tick
+        string lastCompany = trim(GetFirstLineOfFile(lastCompanyFile));// get last company that was translated to yfin tick
         int posCompa = findPos(compaNames, compaName);
         int posLastUsed = findPos(compaNames, lastCompany);
 
@@ -141,26 +149,36 @@ void all_etoro_to_yahoo(vector<string> const & compaNames, string const & outfil
 int main() {
     vector<string> etoro_compaNames;
     etoro_compaNames = extractNthColumnFromCsvString(file, 1, ';', true);
+  
+    
     // yahoo finance only allows around 600 requests per 3 min.
     int translationsChunck = 300;
     int sleepMinutes= 10; // temps d'espera entre chunk i chunk
+    sleepMinutes= 0; 
     
-    string lastCompany = GetFirstLineOfFile(lastCompanyFile);
-    int posLastUsed = findPos(etoro_compaNames, lastCompany);
+    string lastCompany;
+   
+    int posLastUsed;
     int i = 0;
 
     while(true) {        
         ++i;
         WriteToFileSimple("doing the first " + to_string(i) + " " +to_string(translationsChunck)+"  translations", outLogs);
-        lastCompany = GetFirstLineOfFile(lastCompanyFile);
-        posLastUsed = findPos(etoro_compaNames, lastCompany);
+        lastCompany = trim(GetFirstLineOfFile(lastCompanyFile));
+        
+        if(lastCompany == "") posLastUsed = 0; // if we have empty file, it means start from first company on
+        else {
+            posLastUsed = findPos(etoro_compaNames, lastCompany);
+        }
+
         cout << "posLastUsed: " << posLastUsed << endl;
+
         if(posLastUsed+translationsChunck > LenghtOfVectorStr(etoro_compaNames)) {
             //basically, if the chunck would make a segmentation fault, shorten it to fit 
             //the remaining elements of the array
             translationsChunck = posLastUsed+translationsChunck-LenghtOfVectorStr(etoro_compaNames) ;
         }
-        else if(lastCompany == "") posLastUsed = 0; // if we have empty file, it means start from first company on
+        
         cout << "no peta" << endl;
         vector<string> part(etoro_compaNames.begin()+ posLastUsed, 
                         etoro_compaNames.begin() + posLastUsed+translationsChunck);

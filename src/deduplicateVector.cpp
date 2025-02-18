@@ -22,10 +22,11 @@ using namespace std;
 #include <istream>
 
 // compile by the command: 
-// g++ time_utils.cpp curl_utils.cpp quote.cpp spot.cpp transform_etoro.cpp -o trans_etoro -lcurl
+// g++  deduplicateVector.cpp -o dedupVec 
 
-string file = "../output/yfin_etoroTicks.csv";
-string outputFile = "../output/yfin_etoroTicks_clean.csv";
+string data_exec = "02_2025";
+string file = "../output/yfin_etoroTicks_"+data_exec+".csv";
+string outputFile = "../output/yfin_etoroTicks_clean_"+data_exec+".csv";
 string outLogs = "../output/dedupOutLogs.txt";
 
 int main() {
