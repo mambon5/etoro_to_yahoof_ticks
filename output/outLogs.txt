@@ -9901,3 +9901,255 @@ company name:Orca and yfin: GB00BN0TY502.SG
 company name:Osmosis and yfin: 0P0001IY6C.F
 company name: and yfin: not_found
 sleeping for 10 min ...
+doing the first 0 300  translations
+doing the first 0 300  translations
+doing the first 1 300  translations
+company name: E U R  U S D  and yfin: not_found
+company name: G B P  U S D  and yfin: not_found
+company name: N Z D  U S D  and yfin: not_found
+company name: U S D  C A D  and yfin: not_found
+company name: U S D  J P Y  and yfin: not_found
+company name: U S D  C H F  and yfin: not_found
+company name: A U D  U S D  and yfin: not_found
+company name: E U R  G B P  and yfin: not_found
+company name: E U R  C H F  and yfin: not_found
+company name: E U R  J P Y  and yfin: not_found
+company name: G B P  J P Y  and yfin: not_found
+company name: E U R  A U D  and yfin: not_found
+company name: E U R  C A D  and yfin: not_found
+company name: A U D  J P Y  and yfin: not_found
+company name: C A D  J P Y  and yfin: not_found
+company name: C H F  J P Y  and yfin: not_found
+company name: O i l   ( N o n   E x p i r y )  and yfin: not_found
+company name: G o l d   ( N o n   E x p i r y )  and yfin: not_found
+company name: S i l v e r   ( N o n   E x p i r y )  and yfin: not_found
+company name: C o p p e r   ( E x p i r i n g   F u t u r e )  and yfin: not_found
+company name: N a t u r a l   G a s   ( N o n   E x p i r y )  and yfin: not_found
+company name: U S   D o l l a r   I n d e x   ( N o n   E x p i r y )  and yfin: not_found
+company name: S P X 5 0 0   I n d e x   ( N o n   E x p i r y )  and yfin: not_found
+company name: N A S D A Q 1 0 0   I n d e x   ( N o n   E x p i r y )  and yfin: not_found
+company name: D J 3 0   I n d e x   ( N o n   E x p i r y )  and yfin: not_found
+company name: U K 1 0 0   I n d e x   ( N o n   E x p i r y )  and yfin: not_found
+company name: F R A 4 0   I n d e x   ( N o n   E x p i r y )  and yfin: not_found
+company name: G E R 4 0   I n d e x   ( N o n   E x p i r y )  and yfin: not_found
+company name: A U S 2 0 0   I n d e x   ( N o n   E x p i r y )  and yfin: not_found
+company name: E S P 3 5   I n d e x   ( N o n   E x p i r y )  and yfin: not_found
+company name: I T A 4 0  and yfin: not_found
+company name: J P N 2 2 5   I n d e x   ( N o n   E x p i r y )  and yfin: not_found
+company name: S U I 3 0  and yfin: not_found
+company name: H K G 5 0   I n d e x   ( N o n   E x p i r y )  and yfin: not_found
+company name: U S D  H K D  and yfin: not_found
+company name: P l a t i n u m   ( N o n   E x p i r y )  and yfin: not_found
+company name: P a l l a d i u m  and yfin: not_found
+company name: U S D  Z A R  and yfin: not_found
+company name: E U S T X 5 0   I n d e x   ( N o n   E x p i r y )  and yfin: not_found
+company name: U S D  R U B  and yfin: not_found
+company name: U S D  C N H  and yfin: not_found
+company name: A U D  C H F  and yfin: not_found
+company name: A U D  C A D  and yfin: not_found
+company name: A U D  N Z D  and yfin: not_found
+company name: E U R  N Z D  and yfin: not_found
+company name: G B P  A U D  and yfin: not_found
+company name: G B P  C H F  and yfin: not_found
+company name: G B P  N Z D  and yfin: not_found
+company name: N Z D  C A D  and yfin: not_found
+company name: N Z D  C H F  and yfin: not_found
+company name: N Z D  J P Y  and yfin: not_found
+company name: C A D  C H F  and yfin: not_found
+company name: U S D  N O K  and yfin: not_found
+company name: U S D  S E K  and yfin: not_found
+company name: N O K  S E K  and yfin: not_found
+company name: E U R  N O K  and yfin: not_found
+company name: E U R  S E K  and yfin: not_found
+company name: U S D  T R Y  and yfin: not_found
+company name: U S D  M X N  and yfin: not_found
+company name: U S D  S G D  and yfin: not_found
+company name: G B P  C A D  and yfin: not_found
+company name: Z A R  J P Y  and yfin: not_found
+company name: E U R  P L N  and yfin: not_found
+company name: U S D  H U F  and yfin: not_found
+company name: E U R  H U F  and yfin: not_found
+company name: G B P  H U F  and yfin: not_found
+company name: C H F  H U F  and yfin: not_found
+company name: U S D  P L N  and yfin: not_found
+doing the first 1 300  translations
+company name: U S D  D K K  and yfin: not_found
+company name: E U R  D K K  and yfin: not_found
+company name: U S D  C Z K  and yfin: not_found
+company name: P a l l a d i u m   ( E x p i r i n g   F u t u r e )  and yfin: not_found
+company name: S u g a r   ( E x p i r i n g   F u t u r e )  and yfin: not_found
+company name: C o t t o n   ( E x p i r i n g   F u t u r e )  and yfin: not_found
+company name: W h i t e   S u g a r   F u t u r e  and yfin: not_found
+company name: C o c o a   ( E x p i r i n g   F u t u r e )  and yfin: not_found
+company name: W h e a t   ( E x p i r i n g   F u t u r e )  and yfin: not_found
+company name: C o t t o n   N o . 7  and yfin: not_found
+doing the first 1 300  translations
+company name: C h i n a A 5 0   I n d e x   ( N o n   E x p i r y )  and yfin: not_found
+company name: S i n g a p o r e   I n d e x   ( N o n   E x p i r y )  and yfin: not_found
+company name: R u s s e l l   2 0 0 0   I n d e x   ( N o n   E x p i r y )  and yfin: not_found
+company name: O r a n g e   J u i c e   ( E x p i r i n g   F u t u r e )  and yfin: not_found
+company name: S o y b e a n s   O i l   ( E x p i r i n g   F u t u r e )  and yfin: not_found
+company name: S o y b e a n s   M e a l   ( E x p i r i n g   F u t u r e )  and yfin: not_found
+company name: E u r o   N a t G a s   ( E x p i r i n g   F u t u r e )  and yfin: not_found
+company name: O a t s   ( E x p i r i n g   F u t u r e )  and yfin: not_found
+company name: R o u g h   R i c e   ( E x p i r i n g   F u t u r e )  and yfin: not_found
+company name: C o r n   ( E x p i r i n g   F u t u r e )  and yfin: not_found
+doing the first 1 300  translations
+company name: S o y b e a n s   ( E x p i r i n g   F u t u r e )  and yfin: not_found
+company name: C a r b o n   E m i s s i o n s   ( E x p i r i n g   F u t u r e )  and yfin: not_found
+company name: C o f f e e   A r a b i c a   ( E x p i r i n g   F u t u r e )  and yfin: not_found
+company name: G a s o l i n e   ( E x p i r i n g   F u t u r e )  and yfin: not_found
+company name: H e a t i n g   O i l   ( E x p i r i n g   F u t u r e )  and yfin: not_found
+company name: L i v e   C a t t l e   ( E x p i r i n g   F u t u r e )  and yfin: not_found
+company name: L e a n   H o g s   ( E x p i r i n g   F u t u r e )  and yfin: not_found
+company name: L e a d   ( N o n   E x p i r y )  and yfin: not_found
+company name: Z i n c   ( N o n   E x p i r y )  and yfin: not_found
+company name: B r e n t   O i l   ( N o n   E x p i r y )  and yfin: not_found
+company name: N i c k e l   ( N o n   E x p i r y )  and yfin: not_found
+company name: A l u m i n u m   ( N o n   E x p i r y )  and yfin: not_found
+company name: N e t h e r l a n d s   2 5   I n d e x   ( N o n   E x p i r y )  and yfin: not_found
+doing the first 1 300  translations
+company name: C o a l   ( E x p i r i n g   F u t u r e )  and yfin: not_found
+company name: S t e e l   ( E x p i r i n g   F u t u r e )  and yfin: not_found
+company name: C l a s s   I I I   M i l k   ( E x p i r i n g   F u t u r e )  and yfin: not_found
+company name: L u m b e r   ( E x p i r i n g   F u t u r e )  and yfin: not_found
+company name: L o w   S u l p h u r   G a s o i l   ( E x p i r i n g   F u t u r e )  and yfin: not_found
+company name: G e r m a n   P o w e r   ( E x p i r i n g   F u t u r e )  and yfin: not_found
+company name: U K   N B P   N a t u r a l   G a s   ( E x p i r i n g   F u t u r e )  and yfin: not_found
+doing the first 1 300  translations
+company name: C a n o l a   ( E x p i r i n g   F u t u r e )  and yfin: not_found
+company name: U S D  I L S  and yfin: not_found
+company name: G B P  I L S  and yfin: not_found
+company name: E U R  I L S  and yfin: not_found
+company name: U S D  C O P  and yfin: not_found
+company name: U S D  C L P  and yfin: not_found
+company name: U S D  K R W  and yfin: not_found
+doing the first 1 300  translations
+doing the first 1 300  translations
+company name: U S D  B R L  and yfin:  Requests
+
+company name: V I X   ( F e b   2 5   F u t u r e )  and yfin:  Requests
+
+company name: V I X   ( M a r   2 5   F u t u r e )  and yfin:  Requests
+
+company name: C r u d e   O i l   ( M a r c h   2 5   F u t u r e )  and yfin:  Requests
+
+company name: C r u d e   O i l   ( A p r i l   2 5   F u t u r e )  and yfin:  Requests
+
+company name: N a t u r a l   G a s   ( M a r c h   2 5   F u t u r e )  and yfin:  Requests
+
+company name: N a t u r a l   G a s   ( A p r i l   2 5   F u t u r e )  and yfin:  Requests
+
+company name: A p p l e  and yfin:  Requests
+
+company name: A l p h a b e t  and yfin:  Requests
+
+company name: M e t a   P l a t f o r m s   I n c  and yfin:  Requests
+
+company name: M i c r o s o f t  and yfin:  Requests
+
+company name: A m a z o n . c o m   I n c  and yfin:  Requests
+
+doing the first 1 300  translations
+company name: A l t a b a   I n c  and yfin: not_found
+company name: Z y n g a  and yfin: not_found
+company name: A l c o a  and yfin: not_found
+company name: A m e r i c a n   E x p r e s s   C O  and yfin: not_found
+company name: B o e i n g  and yfin: not_found
+company name: B a n k   o f   A m e r i c a   C o r p  and yfin: not_found
+company name: C a t e r p i l l a r  and yfin: not_found
+company name: C i s c o   S y s t e m s   I n c  and yfin: not_found
+company name: C h e v r o n  and yfin: not_found
+company name: D u - P o n t  and yfin: not_found
+company name: W a l t   D i s n e y  and yfin: not_found
+company name: G e n e r a l   E l e c t r i c   C o  and yfin: not_found
+company name: H o m e   D e p o t   I n c  and yfin: not_found
+company name: H e w l e t t   P a c k a r d  and yfin: not_found
+doing the first 1 300  translations
+company name: I n t e r n a t i o n a l   B u s i n e s s   M a c h i n e s   C o r p o r a t i o n   ( I B M )  and yfin: not_found
+company name: I n t e l  and yfin: not_found
+company name: J o h n s o n   &   J o h n s o n  and yfin: not_found
+company name: J P M o r g a n   C h a s e   &   C o  and yfin: not_found
+company name: C o c a - C o l a  and yfin: not_found
+company name: M c D o n a l d ' s  and yfin: not_found
+company name: 3 M  and yfin: not_found
+company name: M e r c k   &   C o .  and yfin: not_found
+company name: P f i z e r  and yfin: not_found
+company name: P r o c t e r   &   G a m b l e   C o  and yfin: not_found
+company name: A T & T   I n c  and yfin: not_found
+company name: T r a v e l e r s  and yfin: not_found
+company name: U n i t e d H e a l t h  and yfin: not_found
+doing the first 1 300  translations
+company name: R a y t h e o n - T e c h n o l o g i e s  and yfin: not_found
+company name: V e r i z o n  and yfin: not_found
+company name: W a l m a r t   I n c .  and yfin: not_found
+company name: E x x o n - M o b i l  and yfin: not_found
+company name: C i t i g r o u p  and yfin: not_found
+company name: H o n d a   M o t o r   C o ,   L t d - A D R  and yfin: not_found
+company name: H S B C - A D R  and yfin: not_found
+company name: M a n c h e s t e r   U n i t e d  and yfin: not_found
+company name: M a s t e r c a r d  and yfin: not_found
+company name: N I K E  and yfin: not_found
+doing the first 1 300  translations
+company name: P e p s i C o  and yfin: not_found
+company name: S o n y   G r o u p   C o r p . - A D R  and yfin: not_found
+company name: T o y o t a   M o t o r   C o r p o r a t i o n - A D R  and yfin: not_found
+company name: V i s a  and yfin: not_found
+company name: V o d a f o n e   G r o u p   p l c - A D R  and yfin: not_found
+company name: T i m e - W a r n e r  and yfin: not_found
+company name: D e u t s c h e - B a n k  and yfin: not_found
+company name: C o l g a t e - P a l m o l i v e  and yfin: not_found
+company name: e B a y  and yfin: not_found
+doing the first 1 300  translations
+company name: S i e m e n s  and yfin: not_found
+company name: N e b i u s   G r o u p   N V  and yfin: not_found
+company name: Q i w i   P l c - A D R  and yfin: not_found
+company name: C h i n a   M o b i l e   L i m i t e d  and yfin: not_found
+company name: M o a t a b l e   I n c - A D R  and yfin: not_found
+company name: B l u e   O w l   C a p i t a l   I n c  and yfin: not_found
+company name: L i b e r t y   B r o a d b a n d   C o r p o r a t i o n  and yfin: not_found
+doing the first 1 300  translations
+company name:   L i b e r t y   M e d i a   C o r p - L i b e r t y   F o r m u l a   O n e   - C  and yfin: PEPB34.SA
+company name: K a r u n a   T h e r a p e u t i c s ,   I n c  and yfin: PEPB34.SA
+company name: S i g n i f y   H e a l t h ,   I n c  and yfin: PEPB34.SA
+company name: O p t i o n   C a r e   H e a l t h ,   I n c  and yfin: PEPB34.SA
+company name: L a n t h e u s   H o l d i n g s ,   I n c  and yfin: PEPB34.SA
+company name: N o v a n t a   I n c  and yfin: PEPB34.SA
+company name: P r i v i a   H e a l t h   G r o u p ,   I n c  and yfin: PEPB34.SA
+company name: P e a b o d y   E n e r g y   C o r p o r a t i o n    and yfin: PEPB34.SA
+company name: Z i f f   D a v i s ,   I n c  and yfin: PEPB34.SA
+company name: B e a c o n   R o o f i n g   S u p p l y ,   I n c  and yfin: PEPB34.SA
+company name: S u p e r   M i c r o   C o m p u t e r ,   I n c  and yfin: PEPB34.SA
+company name: P T C   T h e r a p e u t i c s ,   I n c  and yfin: PEPB34.SA
+doing the first 1 300  translations
+company name: E n o v i x   C o r p o r a t i o n  and yfin: not_found
+company name: A l p h a   M e t a l l u r g i c a l   R e s o u r c e s ,   I n c  and yfin: not_found
+company name: C a l - M a i n e   F o o d s ,   I n c  and yfin: not_found
+company name: C o r e   N a t u r a l   R e s o u r c e s   I n c  and yfin: not_found
+company name: N e o g e n   C o r p o r a t i o n  and yfin: not_found
+company name: V e r u   I n c  and yfin: not_found
+company name: S I G A   T e c h n o l o g i e s ,   I n c  and yfin: not_found
+company name: I n v e s c o   S & P   5 0 0   E q u a l   W e i g h t   E T F    and yfin: not_found
+company name: i S h a r e s   E S G   A w a r e   M S C I   U S A   E T F  and yfin: not_found
+company name: i S h a r e s   1 - 5   Y e a r   I n v e s t m e n t   G r a d e   C o r p o r a t e   B o n d   E T F    and yfin: not_found
+company name: i S h a r e s   M B S   E T F  and yfin: not_found
+company name: V a n g u a r d   S h o r t - T e r m   T r e a s u r y   I n d e x   F u n d  and yfin: not_found
+company name: D i m e n s i o n a l   U . S .   C o r e   E q u i t y   2   E T F  and yfin: not_found
+company name: S c h w a b   U . S .   L a r g e - C a p   G r o w t h   E T F    and yfin: not_found
+company name: i S h a r e s   M S C I   E A F E   V a l u e   E T F  and yfin: not_found
+company name: i S h a r e s   0 - 5   Y e a r   T I P S   B o n d   E T F  and yfin: not_found
+doing the first 1 300  translations
+company name: F i r s t   T r u s t   V a l u e   L i n e   D i v i d e n d   I n d e x   F u n d  and yfin: not_found
+company name: i S h a r e s   R u s s e l l   M i d - C a p   G r o w t h   E T F  and yfin: not_found
+company name: i S h a r e s   3 - 7   Y e a r   T r e a s u r y   B o n d   E T F    and yfin: not_found
+company name: G o l d m a n   S a c h s   A c t i v e B e t a   U . S .   L a r g e   C a p   E q u i t y   E T F  and yfin: not_found
+company name: V a n g u a r d   I n t e r m e d i a t e - T e r m   T r e a s u r y   I n d e x   F u n d  and yfin: not_found
+company name: V a n g u a r d   M e g a   C a p   G r o w t h   I n d e x   F u n d  and yfin: not_found
+company name: i S h a r e s   R u s s e l l   3 0 0 0   E T F  and yfin: not_found
+company name: i S h a r e s   M S C I   E A F E   S m a l l - C a p   E T F  and yfin: not_found
+company name: i S h a r e s   M S C I   E A F E   G r o w t h   E T F  and yfin: not_found
+company name: S c h w a b   F u n d a m e n t a l   U . S .   L a r g e   C o m p a n y   I n d e x   E T F  and yfin: not_found
+company name: i S h a r e s   5 - 1 0   Y e a r   I n v e s t m e n t   G r a d e   C o r p o r a t e   B o n d   E T F  and yfin: not_found
+company name: i S h a r e s   F l o a t i n g   R a t e   B o n d   E T F  and yfin: not_found
+company name: I n v e s c o   O p t i m u m   Y i e l d   D i v e r s i f i e d   C o m m o d i t y   S t r a t e g y   N o   K - 1   E T F    and yfin: not_found
+company name: T e l e c o m   A r g e n t i n a   S A - A D R  and yfin: not_found

@@ -26,7 +26,7 @@ using namespace std;
 
 string file = "../output/yfin_etoroTicks.csv";
 string outputFile = "../output/yfin_etoroTicks_clean.csv";
-string outLogs = "../output/outLogs.txt";
+string outLogs = "../output/dedupOutLogs.txt";
 
 int main() {
     
